@@ -11,7 +11,7 @@ import logging
 import random
 from flcore.servers.serveravg import FedAvg
 from flcore.servers.serverfedned import FedNed
-from flcore.servers.serverprotoned import FedProtoNed
+from flcore.servers.serverprotoned import FedProD
 # from flcore.servers.serverpFedMe import pFedMe
 # from flcore.servers.serverperavg import PerAvg
 from flcore.servers.serverprox import FedProx
@@ -404,11 +404,11 @@ def run(args):
             args.model = BaseHeadSplit(args.model, args.head)
             server = FedNed(args, i)
 
-        elif args.algorithm == 'FedProtoNed':
+        elif args.algorithm == 'FedProD':
             args.head = copy.deepcopy(args.model.fc)
             args.model.fc = nn.Identity()
             args.model = BaseHeadSplit(args.model, args.head)
-            server = FedProtoNed(args, i)
+            server = FedProD(args, i)
         elif args.algorithm == "Sentinel":
             # Since the base client uses args.model, we must set it to a valid model.
             args.model = copy.deepcopy(args.student_model)
