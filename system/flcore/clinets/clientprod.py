@@ -12,7 +12,7 @@ from torch.nn import functional as F
 # from torch.utils.data import DataLoader
 
 
-class clientFedProtoned(Client):
+class clientFedProD(Client):
     def __init__(self, args, id, train_samples, test_samples, **kwargs):
         super().__init__(args, id, train_samples, test_samples, **kwargs)
 
